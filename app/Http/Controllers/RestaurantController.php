@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Category;
 
 class RestaurantController extends Controller
 {
@@ -13,11 +14,19 @@ class RestaurantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $restaurants = Restaurant::all();
+        $categories = Category::all();
 
-        return view('restaurants.index', compact('restaurants'));
+        if ($request->category_id !== null) {
+            $restaurants = Restaurant::where('category_id', $request->category_id);
+            $total_count = $restaurants->count();  
+            $restaurants = $restaurants->paginate(10);
+        }else{
+            $total_count =Restaurant::all()->count();
+            $restaurants = Restaurant::paginate(10);
+        }
+        return view('restaurants.index', compact('restaurants','categories','total_count'));
     }
 
     /**

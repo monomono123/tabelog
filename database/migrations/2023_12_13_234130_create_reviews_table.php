@@ -18,6 +18,8 @@ return new class extends Migration
             $table->text('content');
             $table->integer('reservation_id');
             $table->integer('user_id');
+            $table->integer('star');
+            $table->integer('restaurant_id');
             $table->timestamps();
         });
     }

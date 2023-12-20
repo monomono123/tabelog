@@ -72,4 +72,10 @@ class UserController extends Controller
     {
         return view('users.edit_password');
     }
+    public function reservations()
+    {
+        $user = Auth::user();
+        $reservations = $user->reservations()->where('reservationday', '>', date('Y-m-d H:i:s'))->paginate(10);
+        return view('users.reservations', compact('reservations'));
+    }
 }

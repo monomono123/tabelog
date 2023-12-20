@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\ReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,7 @@ use App\Http\Controllers\ReviewController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return to_route('restaurants.index');
 });
 
 Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.store');
@@ -28,10 +29,12 @@ Route::controller(UserController::class)->group(function () {
     Route::put('users/mypage', 'update')->name('mypage.update');
     Route::get('users/mypage/password/edit', 'edit_password')->name('mypage.edit_password');
     Route::put('users/mypage/password', 'update_password')->name('mypage.update_password');
+    Route::get('users/mypage/reservations', 'reservations')->name('mypage.reservations');
 });
 
 Route::get('restaurants/{restaurant}/favorite', [RestaurantController::class, 'favorite'])->name('restaurants.favorite');
-Route::resource('restaurants', RestaurantController::class)->middleware(['auth','verified']);
 Auth::routes(['verify' => true]);
+Route::resource('restaurants', RestaurantController::class);
+Route::resource('reservations', ReservationController::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
