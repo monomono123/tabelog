@@ -9,6 +9,7 @@
  
  <div style="width:40rem;margin:5rem auto;">
  </div>
+ @auth
     @if($restaurant->isFavoritedBy(Auth::user()))
     <a href="{{ route('restaurants.favorite', $restaurant) }}" class="btn restaurant-favorite-button text-favorite w-100">
         <i class="fa fa-heart"></i>
@@ -20,6 +21,7 @@
             お気に入り
     </a>
     @endif
+    @endauth
             <div class="card" style="width:40rem;margin:5rem auto;">
                 <img src="{{ asset($restaurant->image) }}" alt="{{ $restaurant->name }}" class="card-img-top">
                     <div class="card-body">
