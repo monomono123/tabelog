@@ -54,6 +54,11 @@
                                 </tr>
                             </tbody>
                         </table>
+                        @if ($restaurant->image !== "")
+                         <img src="{{ asset($restaurant->image) }}" class="img-thumbnail">
+                         @else
+                         <img src="{{ asset('img/dummy.png')}}" class="img-thumbnail">
+                         @endif
                         <a class="btn btn-primary" href="{{ route('restaurants.show',$restaurant->id) }}" role="button">詳細をみる</a>
                     </div>
                 </div>

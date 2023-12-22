@@ -26,10 +26,16 @@ class CategoryController extends AdminController
     {
         $grid = new Grid(new Category());
 
-        $grid->column('id', __('Id'));
+        $grid->column('id', __('Id'))->sortable();
         $grid->column('name', __('Name'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+        $grid->column('description', __('Description'));
+        $grid->column('created_at', __('Created at'))->sortable();
+        $grid->column('updated_at', __('Updated at'))->sortable();
+
+        $grid->filter(function($filter) {
+            $filter->like('name','カテゴリー名');
+            $filter->between('created_at', '登録日')->datetime();
+        });
 
         return $grid;
     }
@@ -62,6 +68,7 @@ class CategoryController extends AdminController
         $form = new Form(new Category());
 
         $form->text('name', __('Name'));
+        $form->textarea('description', __('Description'));
 
         return $form;
     }
