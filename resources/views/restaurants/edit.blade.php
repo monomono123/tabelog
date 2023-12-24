@@ -22,7 +22,7 @@
          <input type="number" name="price"  value="{{ $restaurant->price }}">
      </div>
      <div>
-         <button type="submit">Submit</button>
+         <button type="button" class="btn btn-danger">Danger</button>
      </div>
  
  </form>

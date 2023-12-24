@@ -21,7 +21,7 @@
                 お気に入り解除
     </a>
     @else
-    <a href="{{ route('restaurants.favorite', $restaurant) }}" class="btn restaurant-favorite-button text-favorite w-100">
+    <a href="{{ route('restaurants.favorite', $restaurant) }}" button type="button" class="btn btn-primay" text-favorite w-100">
         <i class="fa fa-heart"></i>
             お気に入り
     </a>
@@ -99,7 +99,7 @@
                          <textarea name="content" class="form-control m-2"></textarea>
                          <input type="hidden" name="restaurant_id" value="{{$restaurant->id}}">
                          <input type="hidden" name="image" value="{{$restaurant->image}}">
-                         <button type="submit" class="btn samuraimart-submit-button ml-2">レビューを追加</button>
+                         <button type="button" class="btn btn-success">レビュー追加</button>
                      </form>
                  </div>
              </div>

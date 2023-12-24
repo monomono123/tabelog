@@ -3,6 +3,7 @@
 @section('content') 
     <div style="width: 100%;" class="container">
     <form action="{{route('restaurants.index')}}" method="get">
+    @csrf
         <select name="category_id">
         <option value="">選択してください</option>
         @foreach($categories as $category)

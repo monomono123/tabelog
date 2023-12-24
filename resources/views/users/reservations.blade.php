@@ -27,7 +27,7 @@
                         <form action="{{route('reservations.destroy', $reservation)}}" method="post" onsubmit="return confirm('予約をキャンセルします。よろしいですか？');">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-primary">キャンセル</button>
+                        <button type="button" class="btn btn-danger">キャンセル</button>
                         </form>
                         <br>
                         <a class="btn btn-primary" href="{{ route('restaurants.show',$reservation->restaurant->id) }}" role="button">詳細をみる</a>

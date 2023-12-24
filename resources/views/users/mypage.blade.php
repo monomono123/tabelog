@@ -15,8 +15,7 @@
                      </div>
                      <div class="col-9 d-flex align-items-center ms-2 mt-3">
                          <div class="d-flex flex-column">
-                             <label for="user-name">会員情報の編集</label>
-                             <p>アカウント情報の編集</p>
+                             <button type="button" class="btn btn-primary" label for="user-name">会員情報の編集</label></button>
                          </div>
                      </div>
                  </div>
@@ -38,8 +37,7 @@
                      </div>
                      <div class="col-9 d-flex align-items-center ms-2 mt-3">
                          <div class="d-flex flex-column">
-                             <label for="user-name">クレジットカードの登録</label>
-                             <p>クレジットカードの登録</p>
+                             <button type="button" class="btn btn-primary" label for="user-name">クレジットカードの登録</label></button>
                          </div>
                      </div>
                  </div>
@@ -61,8 +59,7 @@
                      </div>
                      <div class="col-9 d-flex align-items-center ms-2 mt-3">
                          <div class="d-flex flex-column">
-                             <label for="user-name">注文履歴</label>
-                             <p>注文履歴を確認できます</p>
+                             <button type="button" class="btn btn-primary" label for="user-name">有料会員</label></button>
                          </div>
                      </div>
                  </div>
@@ -84,8 +81,7 @@
                      </div>
                      <div class="col-9 d-flex align-items-center ms-2 mt-3">
                          <div class="d-flex flex-column">
-                             <label for="user-name">パスワード変更</label>
-                             <p>パスワードを変更します</p>
+                             <button type="button" class="btn btn-primary" label for="user-name">ログアウト</label></button>
                          </div>
                      </div>
                  </div>
@@ -107,8 +103,7 @@
                      </div>
                      <div class="col-9 d-flex align-items-center ms-2 mt-3">
                          <div class="d-flex flex-column">
-                             <label for="user-name">ログアウト</label>
-                             <p>ログアウトします</p>
+                             <button type="button" class="btn btn-danger"><label for="user-name">退会</label></button>
                          </div>
                      </div>
                  </div>

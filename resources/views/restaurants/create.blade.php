@@ -1,3 +1,6 @@
+@extends('layouts.app')
+@section('content')
+
 <div>
      <h2>Add New Restaurant</h2>
  </div>
@@ -21,7 +24,9 @@
          <input type="number" name="price" placeholder="Price">
      </div>
      <div>
-         <button type="submit">Submit</button>
+         <button type="button" class="btn btn-primary">確定</button>
      </div>
  
  </form>
+
+ @endsection
