@@ -11,6 +11,7 @@ use App\Notifications\CustomVerifyEmail;
 use App\Notifications\CustomResetPassword;
 use Overtrue\LaravelFavorite\Traits\Favoriter;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Http\Request;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -69,4 +70,16 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Reservation::class);
     }
+
+
+    Route::post('/user/subscribe', function (Request $request) {
+        $request->user()->newSubscription(
+            'default', 'price_monthly'
+        )->create($request->paymentMethodId);
+    });
+
+    $user->newSubscription('default', 'price_monthly')->createAndSendInvoice([], [
+        'days_until_due' => 30
+    ]);
+
 }
