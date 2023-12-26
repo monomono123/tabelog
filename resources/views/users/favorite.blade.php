@@ -25,14 +25,9 @@
                  </div>
              </div>
              <div class="col-md-2 d-flex align-items-center justify-content-end">
-                 <a href="{{ route('restaurants.favorite', $fav->favoriteable_id) }}" class="tabelog-favorite-item-delete">
+                 <a href="{{ route('restaurants.favorite', $fav->favoriteable_id) }}" class="restaurant-favorite-item-delete">
                      削除
                  </a>
-             </div>
-             <div class="col-md-3 d-flex align-items-center justify-content-end">
-             <input type="hidden" name="image" value="{{App\Models\Restaurant::find($fav->favoriteable_id)->image}}">
-                 <button type="submit" class="btn restaurant-favorite-add-cart">カートに入れる</button>
-             </div>
              @endforeach
          </div>
  

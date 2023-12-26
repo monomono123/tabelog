@@ -31,7 +31,7 @@
      <input type="hidden" name="restaurant_id" value="{{$restaurant->id}}">
 
      <div>
-         <button type="submit">Submit</button>
+         <button type="button" class="btn btn-success">予約確定</button>
      </div>
  
  </form>

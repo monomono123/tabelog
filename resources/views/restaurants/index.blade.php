@@ -14,7 +14,7 @@
         @endif
         @endforeach
         </select>
-        <button type="submit" class="btn btn-primary">検索</button>
+        <button type="button" class="btn btn-primary">検索</button>
     </form>
     <h3>
       {{$total_count}}件の店舗があります
@@ -56,9 +56,9 @@
                             </tbody>
                         </table>
                         @if ($restaurant->image !== "")
-                         <img src="{{ asset($restaurant->image) }}" class="img-thumbnail">
+                         <img src="{{ asset($restaurant->image) }}" class="img-fluid" alt="">
                          @else
-                         <img src="{{ asset('img/dummy.png')}}" class="img-thumbnail">
+                         <img src="{{ asset('/public/img/dummy.png')}}" class="img-fluid" alt="">
                          @endif
                         <a class="btn btn-primary" href="{{ route('restaurants.show',$restaurant->id) }}" role="button">詳細をみる</a>
                     </div>

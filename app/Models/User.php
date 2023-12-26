@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -12,6 +13,9 @@ use App\Notifications\CustomResetPassword;
 use Overtrue\LaravelFavorite\Traits\Favoriter;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Cashier\Billable;
+
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -81,5 +85,10 @@ class User extends Authenticatable implements MustVerifyEmail
     $user->newSubscription('default', 'price_monthly')->createAndSendInvoice([], [
         'days_until_due' => 30
     ]);
+
+    class User extends Authenticatable 
+    {
+        use Billable;
+    }
 
 }
